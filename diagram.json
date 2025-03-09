@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "author": "Cagita Dian A'yunin",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 192, "left": 91.24, "attrs": {} },
+      {
+        "type": "board-ssd1306",
+        "id": "oled1",
+        "top": 281.54,
+        "left": 201.83,
+        "attrs": { "i2cAddress": "0x3c" }
+      },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": 243.2,
+        "left": -114.4,
+        "attrs": {}
+      },
+      { "type": "wokwi-dht22", "id": "dht1", "top": 67.5, "left": -15, "attrs": {} }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "oled1:VCC", "esp:3V3", "red", [ "v-105.6", "h-124.65" ] ],
+      [ "oled1:SCL", "esp:22", "green", [ "v0" ] ],
+      [ "oled1:GND", "esp:GND.3", "black", [ "v0" ] ],
+      [ "oled1:SDA", "esp:21", "green", [ "v0" ] ],
+      [ "ldr1:GND", "esp:GND.1", "black", [ "h19.2", "v38" ] ],
+      [ "esp:3V3", "ldr1:VCC", "red", [ "h-19.05", "v76.8" ] ],
+      [ "ldr1:AO", "esp:34", "green", [ "h28.8", "v-29.5" ] ],
+      [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+      [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+      [ "dht1:SDA", "esp:4", "violet", [ "h0.1", "v153.6" ] ]
+    ],
+    "dependencies": {}
+  }
