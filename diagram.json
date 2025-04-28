@@ -1,24 +1,36 @@
 {
   "version": 1,
-  "author": "VIOLA ROSA EMAWARDANI 2020",
+  "author": "Cagita Dian A'yunin",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -50, "left": -100, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": 50, "left": 200, "attrs": { "pins": "i2c" } },
     {
-      "type": "wokwi-lcd1602",
-      "id": "lcd1",
-      "top": 35.2,
-      "left": 255.2,
-      "attrs": { "pins": "i2c" }
+      "type": "wokwi-pushbutton",
+      "id": "btnNext",
+      "top": 255.8,
+      "left": -76.8,
+      "attrs": { "color": "green", "label": "Next" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnPrev",
+      "top": 207.8,
+      "left": -192,
+      "attrs": { "color": "blue", "label": "Prev" }
     }
   ],
   "connections": [
     [ "esp:TX0", "$serialMonitor:RX", "", [] ],
     [ "esp:RX0", "$serialMonitor:TX", "", [] ],
-    [ "lcd1:SCL", "esp:D22", "green", [ "h-124.8", "v-66.9" ] ],
-    [ "lcd1:VCC", "esp:3V3", "red", [ "h-124.8", "v86.5" ] ],
-    [ "lcd1:GND", "esp:GND.1", "black", [ "h-144", "v57.6" ] ],
-    [ "lcd1:SDA", "esp:D21", "green", [ "h-134.4", "v-28.6" ] ]
+    [ "lcd:SCL", "esp:D22", "green", [ "h-100", "v-40" ] ],
+    [ "lcd:SDA", "esp:D21", "green", [ "h-90", "v-20" ] ],
+    [ "lcd:VCC", "esp:3V3", "red", [ "h-110", "v60" ] ],
+    [ "lcd:GND", "esp:GND.1", "black", [ "h-130", "v40" ] ],
+    [ "btnNext:1.l", "esp:D18", "green", [ "h-30", "v-20" ] ],
+    [ "btnNext:2.l", "esp:GND.2", "black", [ "h-30", "v20" ] ],
+    [ "btnPrev:1.l", "esp:D19", "green", [ "h-30", "v-20" ] ],
+    [ "btnPrev:2.l", "esp:GND.2", "black", [ "h-30", "v20" ] ]
   ],
   "dependencies": {}
 }
